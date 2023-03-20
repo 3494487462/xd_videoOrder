@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace: 名称空间，一般需要保持全局唯一， 最好是和dao层的java接口一致，
+可以映射 sql语句 到对应的方法名称和参数、返回类型
+
+mybatis是使用接口动态代理
+-->
+
+
+<!--===================================-->
+<!--取值的时候，查询用${},其他用#{}-->
+<mapper namespace="com.zwf.dao.TestMapper">
+
+    <insert id="add" parameterType="com.zwf.domain.Test" >
+        insert into test (user_name, psw ) values (#{user_name}, #{password})
+    </insert>
+
+<!--    批量插入-->
+    <insert id="addFor" parameterType="com.zwf.domain.Test">
+        insert into test (user_name, psw )
+        values
+        <foreach collection="list" item="test" index="index" separator=",">
+            (#{test.userName}, #{test.psw})
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.zwf.domain.Test">
+        update test
+        set user_name = #{userName},psw = #{psw}
+        where id = #{id}
+    </update>
+
+    <update id="updateIf" parameterType="com.zwf.domain.Test">
+        update test
+        <trim suffixOverrides="," prefix="set">
+            <if test=" userName != 'ass' "> user_name = #{userName}, </if>
+            <if test=" psw != null "> psw = #{psw}, </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.util.Map">
+        delete from test where id <![CDATA[ > ]]> ${id}
+    </delete>
+
+    <!--statement sql,id： 当前mapper下需要唯一resultType : sql查询结果集的封装-->
+    <select id="selectId" resultType="com.zwf.domain.Test">
+
+        select * from test where id = ${id}
+    </select>
+
+    <!-- 模糊查询   -->
+    <select id="selectMOhu" resultType="com.zwf.domain.Test">
+--         concat是拼接函数，在mybatis中不能直接写;
+        select * from test where psw = 2 and user_name like concat('%', '${str}' ,'%')
+    </select>
+
+
+</mapper>

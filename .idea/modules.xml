@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/projectStudy/boot/boot.iml" filepath="$PROJECT_DIR$/projectStudy/boot/boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectStudy/bv-mybatis/bv-mybatis.iml" filepath="$PROJECT_DIR$/projectStudy/bv-mybatis/bv-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectDev/projectDev.iml" filepath="$PROJECT_DIR$/projectDev/projectDev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectStudy/projectStudy.iml" filepath="$PROJECT_DIR$/projectStudy/projectStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/小D在线教育.iml" filepath="$PROJECT_DIR$/小D在线教育.iml" />
+    </modules>
+  </component>
+</project>

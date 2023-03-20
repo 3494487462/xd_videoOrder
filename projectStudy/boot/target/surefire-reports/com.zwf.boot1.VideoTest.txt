@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.zwf.boot1.VideoTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.178 s <<< FAILURE! - in com.zwf.boot1.VideoTest
+testVideoService  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'WXConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'wxpay.appid' in value "${wxpay.appid}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'wxpay.appid' in value "${wxpay.appid}"
+

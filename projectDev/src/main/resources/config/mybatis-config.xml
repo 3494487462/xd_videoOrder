@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--下划线自动映射驼峰字段（该设置必须放在configuration的最上面）-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!--这个配置使全局的映射器(二级缓存)启用或禁用缓存，全局总开关，这里关闭，mapper中开启了也没用-->
+        <setting name="cacheEnabled" value="true" />
+
+        <!--延迟加载总开关（懒加载）-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--将aggressiveLazyLoading设置为false表示按需加载，默认为true-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+    </settings>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/小d_boot_vue?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT"/>
+                <property name="username" value="root"/>
+                <property name="password" value="1580163103"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <!-- 将包内的映射器接口实现全部注册为映射器 -->
+        <package name="com.dev.dao"/>
+    </mappers>
+</configuration>
